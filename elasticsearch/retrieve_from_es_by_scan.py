@@ -30,23 +30,26 @@ search_body = {
           }
         },
         {
-          "term": {
-            "data_provider.keyword": "CCR"
+          "range": {
+            "fetch_time": {
+              "gt": 1542470400000
+            }
           }
         },
-        {
+                    {
           "range": {
-            "duration": {
-              "lt": 600
+            "fetch_time": {
+              "lt": 1542556800000
             }
           }
         }
+
       ]
     }
   }
 }
 es_scan = elasticsearch.helpers.scan(es_connection, query=search_body, 
-                                     index='short-video-weekly', doc_type='daily-url-2018_w44_s1')
+                                     index='crawler-data-raw', doc_type='doc')
 
 
 for line in es_scan:
@@ -54,7 +57,7 @@ for line in es_scan:
     result_lst.append(data_dic)
     print("be patient the length of result_lst is %s" % len(result_lst))
 
-trans_format.lst_to_csv(listname=result_lst,
-                        csvname='F:/week44.csv')
+#trans_format.lst_to_csv(listname=result_lst,
+#                        csvname='F:/week44.csv')
 
 

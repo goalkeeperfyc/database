@@ -1,0 +1,13 @@
+POST http://192.168.17.11:80/test_write3/daily-url/_bulk [status:413 request:0.340s]
+Undecodable raw error response from server: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "/home/fangyucheng/python_code/crawler/tasks/update_DU_ATU_from_crawler_raw.py", line 55, in <module>
+    index='test_write3', # test
+  File "/home/hanye/crawlers/crawler_sys/framework/es_short_video.py", line 81, in bulk_write_short_video
+    request_timeout=200)
+  File "/home/hanye/anaconda3/lib/python3.6/site-packages/elasticsearch-5.4.0-py3.6.egg/elasticsearch/client/utils.py", line 73, in _wrapped
+  File "/home/hanye/anaconda3/lib/python3.6/site-packages/elasticsearch-5.4.0-py3.6.egg/elasticsearch/client/__init__.py", line 1165, in bulk
+  File "/home/hanye/anaconda3/lib/python3.6/site-packages/elasticsearch-5.4.0-py3.6.egg/elasticsearch/transport.py", line 312, in perform_request
+  File "/home/hanye/anaconda3/lib/python3.6/site-packages/elasticsearch-5.4.0-py3.6.egg/elasticsearch/connection/http_urllib3.py", line 128, in perform_request
+  File "/home/hanye/anaconda3/lib/python3.6/site-packages/elasticsearch-5.4.0-py3.6.egg/elasticsearch/connection/base.py", line 125, in _raise_error
+elasticsearch.exceptions.TransportError: TransportError(413, '<html>\r\n<head><title>413 Request Entity Too Large</title></head>\r\n<body bgcolor="white">\r\n<center><h1>413 Request Entity Too Large</h1></center>\r\n<hr><center>nginx/1.12.2</center>\r\n</body>\r\n</html>\r\n')
